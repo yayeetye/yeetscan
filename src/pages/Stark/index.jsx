@@ -584,6 +584,7 @@ const Stark = () => {
                     item.stark_usdc_balance = null;
                     item.stark_usdt_balance = null;
                     item.stark_dai_balance = null;
+                    item.stark_strk_balance = null;
                     item.d_eth_amount = null;
                     item.d_eth_count = null;
                     item.d_usdc_amount = null;
@@ -641,11 +642,12 @@ const Stark = () => {
                     //     localStorage.setItem('stark_addresses', JSON.stringify(data));
                     // })})
                     promisesQueue.push(() => {
-                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance}) => {
+                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance, strk_balance}) => {
                         item.stark_eth_balance = eth_balance;
                         item.stark_usdc_balance = usdc_balance;
                         item.stark_usdt_balance = usdt_balance;
                         item.stark_dai_balance = dai_balance;
+                        item.stark_strk_balance = strk_balance;
                         setData([...newData]);
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
                     })})
@@ -795,6 +797,7 @@ const Stark = () => {
                     item.stark_usdc_balance = null;
                     item.stark_usdt_balance = null;
                     item.stark_dai_balance = null;
+                    item.stark_strk_balance = null;
                     setData([...newData]);
                     
                     promisesQueue.push(() => {
@@ -818,11 +821,12 @@ const Stark = () => {
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
                     })})
                     promisesQueue.push(() => {
-                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance}) => {
+                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance, strk_balance}) => {
                         item.stark_eth_balance = eth_balance;
                         item.stark_usdc_balance = usdc_balance;
                         item.stark_usdt_balance = usdt_balance;
                         item.stark_dai_balance = dai_balance;
+                        item.stark_strk_balance = strk_balance;
                         setData([...newData]);
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
                     })})
@@ -1015,6 +1019,14 @@ const Stark = () => {
                     title: "DAI",
                     dataIndex: "stark_dai_balance",
                     key: "stark_dai_balance",
+                    align: "center",
+                    render: (text, record) => text === null ? <Spin/> : text,
+                    width: 70,
+                },
+                {
+                    title: "STRK",
+                    dataIndex: "stark_strk_balance",
+                    key: "stark_strk_balance",
                     align: "center",
                     render: (text, record) => text === null ? <Spin/> : text,
                     width: 70,
