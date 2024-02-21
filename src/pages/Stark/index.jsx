@@ -1353,18 +1353,21 @@ const Stark = () => {
                             let starkUsdcBalance = 0;
                             let starkUsdtBalance = 0;
                             let starkDaiBalance = 0;
+                            let starkStrkBalance = 0;
                             let totalStarkAirdrop = 0;
                             pageData.forEach(({
                                                   stark_eth_balance,
                                                   stark_usdc_balance,
                                                   stark_usdt_balance,
                                                   stark_dai_balance,
+                                                  stark_strk_balance,
                                                   stark_airdrop,
                                               }) => {
                                 starkEthBalance += Number(stark_eth_balance);
                                 starkUsdcBalance += Number(stark_usdc_balance);
                                 starkUsdtBalance += Number(stark_usdt_balance);
                                 starkDaiBalance += Number(stark_dai_balance);
+                                starkStrkBalance += Number(stark_strk_balance);
                                 totalStarkAirdrop += Number(stark_airdrop);
                             })
 
@@ -1378,8 +1381,9 @@ const Stark = () => {
                                         <Table.Summary.Cell index={7}>{starkUsdcBalance.toFixed(2)}</Table.Summary.Cell>
                                         <Table.Summary.Cell index={8}>{starkUsdtBalance.toFixed(2)}</Table.Summary.Cell>
                                         <Table.Summary.Cell index={9}>{starkDaiBalance.toFixed(2)}</Table.Summary.Cell>
+                                        <Table.Summary.Cell index={10}>{starkStrkBalance.toFixed(1)}</Table.Summary.Cell>
                                         {emptyCells}
-                                        <Table.Summary.Cell index={10}>{totalStarkAirdrop.toFixed(0)}</Table.Summary.Cell>
+                                        <Table.Summary.Cell index={11}>{totalStarkAirdrop.toFixed(0)}</Table.Summary.Cell>
                                     </Table.Summary.Row>
                                 </>
                             )
