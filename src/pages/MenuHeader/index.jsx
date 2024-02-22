@@ -4,6 +4,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {GithubOutlined, TwitterOutlined, CaretDownOutlined} from "@ant-design/icons";
 import './index.css'
 import {getEthPrice} from "@utils";
+import price from "@utils/price.js";
 
 const EthPrice = () => {
     const [ethPrice, setEthPrice] = useState(null);
@@ -19,6 +20,7 @@ const EthPrice = () => {
     if (ethPrice === null) {
         return <div>Loading ETH Price...</div>;
     }
+    price.ETH = ethPrice;
     return <div>ETH Price: ${ethPrice}</div>
 }
 const MenuHeader = () => {
