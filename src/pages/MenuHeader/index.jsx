@@ -48,20 +48,6 @@ const MenuHeader = () => {
             ],
         },
         {
-            label: <span>Stark <CaretDownOutlined /></span>,
-            key: 'starknet',
-            children: [
-                {
-                    label: 'Stark',
-                    key: 'stark',
-                },
-                {
-                    label: 'StarkTasks',
-                    key: 'starkTasks',
-                },
-            ],
-        },
-        {
             label: <span>Linea <CaretDownOutlined /></span>,
             key: 'lin',
             children: [
@@ -106,8 +92,18 @@ const MenuHeader = () => {
             key: 'deposit',
         },
         {
-            label: '捐赠',
+            label: <span>捐赠 / 已空投 <CaretDownOutlined /></span>,
             key: 'donate',
+            children: [
+                {
+                    label: '捐赠',
+                    key: 'donate',
+                },
+                {
+                    label: 'Stark',
+                    key: 'stark',
+                },
+            ],
         },
         {
             label: <a href="https://github.com/luoyeETH/MyWalletScan" target="_blank"
